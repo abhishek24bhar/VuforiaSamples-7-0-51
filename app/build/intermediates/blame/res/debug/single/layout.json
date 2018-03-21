@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\sample_app_menu_layer.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\sample_app_menu_layer.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\sample_app_menu_group_divider.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\sample_app_menu_group_divider.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\camera_overlay_with_scanline.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\camera_overlay_with_scanline.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\card.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\card.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activities_list_text_view.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\activities_list_text_view.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\sample_app_menu_group.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\sample_app_menu_group.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\about_screen.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\about_screen.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\camera_overlay_udt.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\camera_overlay_udt.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\splash_screen.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\splash_screen.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\camera_overlay_textreco.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\camera_overlay_textreco.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\camera_overlay.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\camera_overlay.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activities_list.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\activities_list.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\camera_overlay_reticle.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\camera_overlay_reticle.xml"
+    },
+    {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\sample_app_menu_group_radio_button.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\sample_app_menu_group_radio_button.xml"
+    }
+]
