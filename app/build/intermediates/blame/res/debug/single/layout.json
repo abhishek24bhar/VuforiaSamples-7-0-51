@@ -8,6 +8,10 @@
         "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\sample_app_menu_group_divider.xml"
     },
     {
+        "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fullscreen_layout.xml",
+        "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\fullscreen_layout.xml"
+    },
+    {
         "merged": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\build\\intermediates\\res\\merged\\debug\\layout\\camera_overlay_with_scanline.xml",
         "source": "I:\\AugmentedReality\\vuforia-samples-core-android-7-0-51\\VuforiaSamples-7-0-51\\app\\src\\main\\res\\layout\\camera_overlay_with_scanline.xml"
     },

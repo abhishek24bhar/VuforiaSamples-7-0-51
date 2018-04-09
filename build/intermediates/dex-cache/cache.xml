@@ -3,6 +3,15 @@
 
     <item
         is-multidex="false"
+        jar="I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\libs\jpct_ae.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bfb4221b9531f27671cc2fe194ac126d08be5092">
+        <dex dex="I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\build\intermediates\pre-dexed\debug\jpct_ae_d6b01c7113e789b78d497c1f88a50f03f1df8bcc.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\libs\Vuforia.jar"
         jumboMode="false"
         optimize="true"

@@ -119,7 +119,27 @@
             android:launchMode="singleTask"
             >
         </activity>
-
+        <activity
+            android:name=".app.VideoPlayback.FullscreenPlayback"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
+            android:theme="@style/SampleAppsTheme"
+            android:launchMode="singleTask"
+            >
+        </activity>
+        <activity
+            android:name=".app.VideoPlayback.VideoPlayback"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
+            android:theme="@style/SampleAppsTheme"
+            android:launchMode="singleTask"
+            >
+        </activity>
+        <activity
+            android:name=".app.VideoPlayback.UserDefinedVideoPlayback"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
+            android:theme="@style/SampleAppsTheme"
+            android:launchMode="singleTask"
+            >
+        </activity>
         <activity
             android:name=".app.VuMark.VuMark"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"

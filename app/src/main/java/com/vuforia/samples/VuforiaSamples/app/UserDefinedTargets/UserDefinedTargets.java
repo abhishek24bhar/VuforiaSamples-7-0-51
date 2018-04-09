@@ -175,7 +175,7 @@ public class UserDefinedTargets extends Activity implements
     //This image is render when cam click
     private void loadTextures()
     {
-        mTextures.add(Texture.loadTextureFromApk("burger.png",
+        mTextures.add(Texture.loadTextureFromApk("burger1.png",
             getAssets()));
     }
     

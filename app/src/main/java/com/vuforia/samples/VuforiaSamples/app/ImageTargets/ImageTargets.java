@@ -15,23 +15,30 @@ import java.util.Vector;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.NativeActivity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vuforia.CameraDevice;
@@ -50,16 +57,26 @@ import com.vuforia.samples.SampleApplication.utils.LoadingDialogHandler;
 import com.vuforia.samples.SampleApplication.utils.SampleApplicationGLView;
 import com.vuforia.samples.SampleApplication.utils.Texture;
 import com.vuforia.samples.VuforiaSamples.R;
+import com.vuforia.samples.VuforiaSamples.app.TextRecognition.TextReco;
+import com.vuforia.samples.VuforiaSamples.app.TextRecognition.TextRecoRenderer;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenu;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuGroup;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuInterface;
+
+import static java.lang.System.loadLibrary;
 
 
 public class ImageTargets extends Activity implements SampleApplicationControl,
     SampleAppMenuInterface
 {
+   /* static
+    {
+        *//*loadLibrary(NATIVE_LIB_QCAR);
+        loadLibrary(NATIVE_LIB_SAMPLE);*//*
+        loadLibrary("native-activity");
+    }*/
     private static final String LOGTAG = "ImageTargets";
-    
+    private TextView tv_show;
     SampleApplicationSession vuforiaAppSession;
     
     private DataSet mCurrentDataset;
@@ -110,7 +127,7 @@ public class ImageTargets extends Activity implements SampleApplicationControl,
         vuforiaAppSession = new SampleApplicationSession(this);
         
         startLoadingAnimation();
-        mDatasetStrings.add("StonesAndChips.xml");
+        mDatasetStrings.add("Demo1.xml");
         mDatasetStrings.add("Tarmac.xml");
         
         vuforiaAppSession
@@ -205,6 +222,26 @@ public class ImageTargets extends Activity implements SampleApplicationControl,
         }
 
         vuforiaAppSession.onResume();
+        /*ImageTargetRenderer.mainActivityHandler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                String text = (String) msg.obj;
+
+                // The Toast displays the name of the detected
+                // trackable on the screen
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+
+                // The following opens a pre-defined URL based on the
+                // name of trackable detected
+
+            }
+        };*/
+
+
+
     }
     
     
@@ -293,7 +330,7 @@ public class ImageTargets extends Activity implements SampleApplicationControl,
     {
         mUILayout = (RelativeLayout) View.inflate(this, R.layout.camera_overlay,
             null);
-        
+        tv_show=(TextView)findViewById(R.id.tv_show);
         mUILayout.setVisibility(View.VISIBLE);
         mUILayout.setBackgroundColor(Color.BLACK);
         
@@ -310,7 +347,16 @@ public class ImageTargets extends Activity implements SampleApplicationControl,
             LayoutParams.MATCH_PARENT));
         
     }
-    
+    public void updateWordListUI(){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if(tv_show!=null)
+                tv_show.setText("Offer");
+                }
+
+        });
+    }
     
     // Methods to load and destroy tracking data.
     @Override
@@ -678,7 +724,7 @@ public class ImageTargets extends Activity implements SampleApplicationControl,
         mStartDatasetsIndex = CMD_DATASET_START_INDEX;
         mDatasetsNumber = mDatasetStrings.size();
         
-        group.addRadioItem("Stones & Chips", mStartDatasetsIndex, true);
+        group.addRadioItem("Demo1", mStartDatasetsIndex, true);
         group.addRadioItem("Tarmac", mStartDatasetsIndex + 1, false);
         
         mSampleAppMenu.attachMenu();

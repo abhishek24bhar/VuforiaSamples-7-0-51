@@ -10,18 +10,31 @@ countries.
 package com.vuforia.samples.VuforiaSamples.app.ImageTargets;
 
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import android.graphics.Color;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vuforia.Device;
 import com.vuforia.Matrix44F;
+import com.vuforia.Renderer;
 import com.vuforia.State;
 import com.vuforia.Tool;
 import com.vuforia.Trackable;
@@ -31,17 +44,72 @@ import com.vuforia.samples.SampleApplication.SampleAppRenderer;
 import com.vuforia.samples.SampleApplication.SampleAppRendererControl;
 import com.vuforia.samples.SampleApplication.SampleApplicationSession;
 import com.vuforia.samples.SampleApplication.utils.CubeShaders;
+import com.vuforia.samples.SampleApplication.utils.LineShaders;
 import com.vuforia.samples.SampleApplication.utils.LoadingDialogHandler;
 import com.vuforia.samples.SampleApplication.utils.SampleApplication3DModel;
 import com.vuforia.samples.SampleApplication.utils.SampleUtils;
 import com.vuforia.samples.SampleApplication.utils.Teapot;
 import com.vuforia.samples.SampleApplication.utils.Texture;
+import com.vuforia.samples.VuforiaSamples.R;
+import com.vuforia.samples.VuforiaSamples.app.TextRecognition.TextReco;
+import com.vuforia.samples.VuforiaSamples.app.TextRecognition.TextRecoRenderer;
 import com.vuforia.samples.VuforiaSamples.helper.TextPlane;
 
 
 // The renderer class for the ImageTargets sample. 
 public class ImageTargetRenderer implements GLSurfaceView.Renderer, SampleAppRendererControl
-{
+{//public static Handler mainActivityHandler;
+    /*
+    For Displaying Text in 3D Model
+
+     */
+    private RelativeLayout mUILayout;
+    private static final int MAX_NB_WORDS = 132;
+    private static final float TEXTBOX_PADDING = 0.0f;
+
+    private static final float ROIVertices[] = { -0.5f, -0.5f, 0.0f, 0.5f,
+            -0.5f, 0.0f, 0.5f, 0.5f, 0.0f, -0.5f, 0.5f, 0.0f };
+
+    private static final int NUM_QUAD_OBJECT_INDICES = 8;
+    private static final short ROIIndices[] = { 0, 1, 1, 2, 2, 3, 3, 0 };
+
+    private static final float quadVertices[] = { -0.5f, -0.5f, 0.0f, 0.5f,
+            -0.5f, 0.0f, 0.5f, 0.5f, 0.0f, -0.5f, 0.5f, 0.0f, };
+
+    private static final short quadIndices[] = { 0, 1, 1, 2, 2, 3, 3, 0 };
+
+    private ByteBuffer mROIVerts = null;
+    private ByteBuffer mROIIndices = null;/*
+    private int shaderProgramID;
+    private int vertexHandle;
+    private int mvpMatrixHandle;*/
+    private Renderer mRenderer;
+    private int lineOpacityHandle;
+    private int lineColorHandle;
+
+    public float ROICenterX;
+    public float ROICenterY;
+    public float ROIWidth;
+    public float ROIHeight;
+    private int viewportPosition_x;
+    private int viewportPosition_y;
+    private int viewportSize_x;
+    private int viewportSize_y;
+    private ByteBuffer mQuadVerts;
+    private ByteBuffer mQuadIndices;
+
+
+
+
+
+
+
+
+
+
+
+
+
     private static final String LOGTAG = "ImageTargetRenderer";
     private TextPlane mTextPlane;
     private SampleApplicationSession vuforiaAppSession;
@@ -81,9 +149,11 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer, SampleAppRen
     @Override
     public void onDrawFrame(GL10 gl)
     {
-        if (!mIsActive)
+        if (!mIsActive) {
+          mActivity.updateWordListUI();
             return;
-        
+        }
+        mActivity.updateWordListUI();
         // Call our function to render content from SampleAppRenderer class
         mSampleAppRenderer.render();
     }
@@ -110,8 +180,8 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer, SampleAppRen
 
         mSampleAppRenderer.onSurfaceCreated();
     }
-    
-    
+
+
     // Called when the surface changed size.
     @Override
     public void onSurfaceChanged(GL10 gl, int width, int height) {
@@ -125,10 +195,57 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer, SampleAppRen
 
         initRendering();
     }
-    
-    
-    // Function for initializing the renderer.
+    boolean modelLoaded = false;
     private void initRendering()
+    {
+        if(!modelLoaded) {
+            // init the vert/inde buffers
+            mROIVerts = ByteBuffer.allocateDirect(4 * ROIVertices.length);
+            mROIVerts.order(ByteOrder.LITTLE_ENDIAN);
+            updateROIVertByteBuffer();
+
+            mROIIndices = ByteBuffer.allocateDirect(2 * ROIIndices.length);
+            mROIIndices.order(ByteOrder.LITTLE_ENDIAN);
+            for (short s : ROIIndices)
+                mROIIndices.putShort(s);
+            mROIIndices.rewind();
+
+            mQuadVerts = ByteBuffer.allocateDirect(4 * quadVertices.length);
+            mQuadVerts.order(ByteOrder.LITTLE_ENDIAN);
+            for (float f : quadVertices)
+                mQuadVerts.putFloat(f);
+            mQuadVerts.rewind();
+
+            mQuadIndices = ByteBuffer.allocateDirect(2 * quadIndices.length);
+            mQuadIndices.order(ByteOrder.LITTLE_ENDIAN);
+            for (short s : quadIndices)
+                mQuadIndices.putShort(s);
+            mQuadIndices.rewind();
+
+            mRenderer = Renderer.getInstance();
+            modelLoaded = true;
+        }
+
+        GLES20.glClearColor(0.0f, 0.0f, 0.0f, Vuforia.requiresAlpha() ? 0.0f
+                : 1.0f);
+
+        shaderProgramID = SampleUtils.createProgramFromShaderSrc(
+                LineShaders.LINE_VERTEX_SHADER, LineShaders.LINE_FRAGMENT_SHADER);
+
+        vertexHandle = GLES20.glGetAttribLocation(shaderProgramID,
+                "vertexPosition");
+        mvpMatrixHandle = GLES20.glGetUniformLocation(shaderProgramID,
+                "modelViewProjectionMatrix");
+
+        lineOpacityHandle = GLES20.glGetUniformLocation(shaderProgramID,
+                "opacity");
+        lineColorHandle = GLES20.glGetUniformLocation(shaderProgramID, "color");
+
+    }
+
+
+    // Function for initializing the renderer.
+   /* private void initRendering()
     {
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, Vuforia.requiresAlpha() ? 0.0f
                 : 1.0f);
@@ -176,8 +293,15 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer, SampleAppRen
                     .sendEmptyMessage(LoadingDialogHandler.HIDE_LOADING_DIALOG);
         }
 
-    }
-
+    }*/
+  /*  public void displayMessage(String text)
+    {
+        // We use a handler because this thread cannot
+        // change the UI
+        Message message = new Message();
+        message.obj = text;
+        mainActivityHandler.sendMessage(message);
+    }*/
     public void updateConfiguration()
     {
         mSampleAppRenderer.onConfigurationChanged(mIsActive);
@@ -203,11 +327,15 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer, SampleAppRen
             TrackableResult result = state.getTrackableResult(tIdx);
             Trackable trackable = result.getTrackable();
             printUserData(trackable);
-            Matrix44F modelViewMatrix_Vuforia = Tool
+
+            //This is the place where I can do anything
+
+
+           /* Matrix44F modelViewMatrix_Vuforia = Tool
                     .convertPose2GLMatrix(result.getPose());
             float[] modelViewMatrix = modelViewMatrix_Vuforia.getData();
 
-            int textureIndex = trackable.getName().equalsIgnoreCase("stones") ? 0
+            int textureIndex = trackable.getName().equalsIgnoreCase("keyboard") ? 0
                     : 1;
             textureIndex = trackable.getName().equalsIgnoreCase("tarmac") ? 2
                     : textureIndex;
@@ -280,17 +408,143 @@ public class ImageTargetRenderer implements GLSurfaceView.Renderer, SampleAppRen
             }
 
             SampleUtils.checkGLError("Render Frame");
+*/
 
+
+
+
+
+
+
+            Matrix44F mvMat44f = Tool.convertPose2GLMatrix(result.getPose());
+            float[] mvMat = mvMat44f.getData();
+            float[] mvpMat = new float[16];
+            Matrix.translateM(mvMat, 0, 0, 0, 0);
+            Matrix.scaleM(mvMat, 0, 10.5f - TEXTBOX_PADDING,
+                    10.5f - TEXTBOX_PADDING, 1.0f);
+            Matrix.multiplyMM(mvpMat, 0, projectionMatrix, 0, mvMat, 0);
+
+            GLES20.glUseProgram(shaderProgramID);
+            GLES20.glLineWidth(3.0f);
+            GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
+                    false, 0, mQuadVerts);
+            GLES20.glEnableVertexAttribArray(vertexHandle);
+            GLES20.glUniform1f(lineOpacityHandle, 1.0f);
+            GLES20.glUniform3f(lineColorHandle, 1.0f, 0.447f, 0.0f);
+            GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false, mvpMat, 0);
+            GLES20.glDrawElements(GLES20.GL_LINES, NUM_QUAD_OBJECT_INDICES,
+                    GLES20.GL_UNSIGNED_SHORT, mQuadIndices);
+            GLES20.glDisableVertexAttribArray(vertexHandle);
+            GLES20.glLineWidth(1.0f);
+            GLES20.glUseProgram(0);
         }
 
+        // Draw the region of interest
         GLES20.glDisable(GLES20.GL_DEPTH_TEST);
+
+        drawRegionOfInterest(ROICenterX, ROICenterY, ROIWidth, ROIHeight);
+
+
+
+
+    }
+    private void setOrthoMatrix(float nLeft, float nRight, float nBottom,
+                                float nTop, float nNear, float nFar, float[] _ROIOrthoProjMatrix)
+    {
+        for (int i = 0; i < 16; i++)
+            _ROIOrthoProjMatrix[i] = 0.0f;
+
+        _ROIOrthoProjMatrix[0] = 2.0f / (nRight - nLeft);
+        _ROIOrthoProjMatrix[5] = 2.0f / (nTop - nBottom);
+        _ROIOrthoProjMatrix[10] = 2.0f / (nNear - nFar);
+        _ROIOrthoProjMatrix[12] = -(nRight + nLeft) / (nRight - nLeft);
+        _ROIOrthoProjMatrix[13] = -(nTop + nBottom) / (nTop - nBottom);
+        _ROIOrthoProjMatrix[14] = (nFar + nNear) / (nFar - nNear);
+        _ROIOrthoProjMatrix[15] = 1.0f;
 
     }
 
+    private void drawRegionOfInterest(float center_x, float center_y,
+                                      float width, float height)
+    {
+        // assumption is that center_x, center_y, width and height are given
+        // here in screen coordinates (screen pixels)
+        float[] orthProj = new float[16];
+        setOrthoMatrix(0.0f, (float) viewportSize_x, (float) viewportSize_y,
+                0.0f, -1.0f, 1.0f, orthProj);
+
+        // compute coordinates
+        float minX = center_x - width / 2;
+        float maxX = center_x + width / 2;
+        float minY = center_y - height / 2;
+        float maxY = center_y + height / 2;
+
+        // Update vertex coordinates of ROI rectangle
+        ROIVertices[0] = minX - viewportPosition_x;
+        ROIVertices[1] = minY - viewportPosition_y;
+        ROIVertices[2] = 0;
+
+        ROIVertices[3] = maxX - viewportPosition_x;
+        ROIVertices[4] = minY - viewportPosition_y;
+        ROIVertices[5] = 0;
+
+        ROIVertices[6] = maxX - viewportPosition_x;
+        ROIVertices[7] = maxY - viewportPosition_y;
+        ROIVertices[8] = 0;
+
+        ROIVertices[9] = minX - viewportPosition_x;
+        ROIVertices[10] = maxY - viewportPosition_y;
+        ROIVertices[11] = 0;
+
+        updateROIVertByteBuffer();
+
+        GLES20.glUseProgram(shaderProgramID);
+        GLES20.glLineWidth(3.0f);
+
+        GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT, false,
+                0, mROIVerts);
+        GLES20.glEnableVertexAttribArray(vertexHandle);
+
+        GLES20.glUniform1f(lineOpacityHandle, 1.0f); // 0.35f);
+        GLES20.glUniform3f(lineColorHandle, 0.0f, 1.0f, 0.0f);// R,G,B
+        GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false, orthProj, 0);
+
+        // Then, we issue the render call
+        GLES20.glDrawElements(GLES20.GL_LINES, NUM_QUAD_OBJECT_INDICES,
+                GLES20.GL_UNSIGNED_SHORT, mROIIndices);
+
+        // Disable the vertex array handle
+        GLES20.glDisableVertexAttribArray(vertexHandle);
+
+        // Restore default line width
+        GLES20.glLineWidth(1.0f);
+
+        // Unbind shader program
+        GLES20.glUseProgram(0);
+    }
+
+      //  GLES20.glDisable(GLES20.GL_DEPTH_TEST);
+
+   // }
+
+    private void updateROIVertByteBuffer()
+    {
+        mROIVerts.rewind();
+        for (float f : ROIVertices)
+            mROIVerts.putFloat(f);
+        mROIVerts.rewind();
+    }
     private void printUserData(Trackable trackable)
     {
         String userData = (String) trackable.getUserData();
         Log.d(LOGTAG, "UserData:Retreived User Data	\"" + userData + "\"");
+        mActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+               // Toast.makeText(mActivity, "This is new Image", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
     
     

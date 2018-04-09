@@ -94,6 +94,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="__local_jars__:I.\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\libs\jpct_ae.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="__local_jars__:I.\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\libs\lib.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="__local_jars__:I.\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\libs\Vuforia.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="android-android-22" level="project" />

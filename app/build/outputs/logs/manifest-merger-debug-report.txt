@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:2:1-189:12
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:2:1-209:12
 	package
 		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:3:5-49
 		INJECTED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml
@@ -50,7 +50,7 @@ ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSample
 	android:name
 		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:50:22-77
 application
-ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:62:5-187:19
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:62:5-207:19
 	android:label
 		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:64:9-41
 	android:launchMode
@@ -111,83 +111,113 @@ ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSample
 		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:118:13-51
 	android:name
 		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:116:13-58
+activity#com.vuforia.samples.VuforiaSamples.app.VideoPlayback.FullscreenPlayback
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:122:9-128:20
+	android:launchMode
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:126:13-44
+	android:configChanges
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:124:13-93
+	android:theme
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:125:13-51
+	android:name
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:123:13-65
+activity#com.vuforia.samples.VuforiaSamples.app.VideoPlayback.VideoPlayback
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:129:9-135:20
+	android:launchMode
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:133:13-44
+	android:configChanges
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:131:13-93
+	android:theme
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:132:13-51
+	android:name
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:130:13-60
+activity#com.vuforia.samples.VuforiaSamples.app.VideoPlayback.UserDefinedVideoPlayback
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:136:9-142:20
+	android:launchMode
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:140:13-44
+	android:configChanges
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:138:13-93
+	android:theme
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:139:13-51
+	android:name
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:137:13-71
 activity#com.vuforia.samples.VuforiaSamples.app.VuMark.VuMark
-ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:123:9-129:20
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:143:9-149:20
 	android:launchMode
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:127:13-44
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:147:13-44
 	android:configChanges
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:125:13-93
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:145:13-93
 	android:theme
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:126:13-51
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:146:13-51
 	android:name
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:124:13-46
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:144:13-46
 activity#com.vuforia.samples.VuforiaSamples.app.TextRecognition.TextReco
-ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:131:9-137:20
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:151:9-157:20
 	android:launchMode
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:135:13-44
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:155:13-44
 	android:configChanges
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:133:13-93
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:153:13-93
 	android:theme
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:134:13-51
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:154:13-51
 	android:name
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:132:13-57
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:152:13-57
 activity#com.vuforia.samples.VuforiaSamples.app.CylinderTargets.CylinderTargets
-ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:139:9-145:20
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:159:9-165:20
 	android:launchMode
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:143:13-44
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:163:13-44
 	android:configChanges
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:141:13-93
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:161:13-93
 	android:theme
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:142:13-51
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:162:13-51
 	android:name
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:140:13-64
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:160:13-64
 activity#com.vuforia.samples.VuforiaSamples.app.VirtualButtons.VirtualButtons
-ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:147:9-153:20
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:167:9-173:20
 	android:launchMode
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:151:13-44
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:171:13-44
 	android:configChanges
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:149:13-93
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:169:13-93
 	android:theme
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:150:13-51
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:170:13-51
 	android:name
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:148:13-62
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:168:13-62
 activity#com.vuforia.samples.VuforiaSamples.app.UserDefinedTargets.UserDefinedTargets
-ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:155:9-161:20
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:175:9-181:20
 	android:launchMode
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:159:13-44
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:179:13-44
 	android:configChanges
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:157:13-93
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:177:13-93
 	android:theme
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:158:13-51
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:178:13-51
 	android:name
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:156:13-70
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:176:13-70
 activity#com.vuforia.samples.VuforiaSamples.app.MultiTargets.MultiTargets
-ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:163:9-169:20
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:183:9-189:20
 	android:launchMode
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:167:13-44
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:187:13-44
 	android:configChanges
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:165:13-93
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:185:13-93
 	android:theme
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:166:13-51
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:186:13-51
 	android:name
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:164:13-58
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:184:13-58
 activity#com.vuforia.samples.VuforiaSamples.app.CloudRecognition.CloudReco
-ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:171:9-177:20
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:191:9-197:20
 	android:launchMode
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:175:13-44
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:195:13-44
 	android:configChanges
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:173:13-93
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:193:13-93
 	android:theme
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:174:13-51
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:194:13-51
 	android:name
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:172:13-59
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:192:13-59
 activity#com.vuforia.samples.VuforiaSamples.app.ObjectRecognition.ObjectTargets
-ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:179:9-185:20
+ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:199:9-205:20
 	android:launchMode
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:183:13-44
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:203:13-44
 	android:configChanges
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:181:13-93
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:201:13-93
 	android:theme
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:182:13-51
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:202:13-51
 	android:name
-		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:180:13-64
+		ADDED from I:\AugmentedReality\vuforia-samples-core-android-7-0-51\VuforiaSamples-7-0-51\app\src\main\AndroidManifest.xml:200:13-64

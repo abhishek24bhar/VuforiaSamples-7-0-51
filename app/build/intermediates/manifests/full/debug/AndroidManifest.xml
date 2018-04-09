@@ -107,6 +107,24 @@
             android:theme="@style/SampleAppsTheme" >
         </activity>
         <activity
+            android:name="com.vuforia.samples.VuforiaSamples.app.VideoPlayback.FullscreenPlayback"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/SampleAppsTheme" >
+        </activity>
+        <activity
+            android:name="com.vuforia.samples.VuforiaSamples.app.VideoPlayback.VideoPlayback"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/SampleAppsTheme" >
+        </activity>
+        <activity
+            android:name="com.vuforia.samples.VuforiaSamples.app.VideoPlayback.UserDefinedVideoPlayback"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/SampleAppsTheme" >
+        </activity>
+        <activity
             android:name="com.vuforia.samples.VuforiaSamples.app.VuMark.VuMark"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
             android:launchMode="singleTask"

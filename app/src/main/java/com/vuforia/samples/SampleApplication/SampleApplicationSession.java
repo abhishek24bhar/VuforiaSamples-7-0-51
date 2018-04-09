@@ -18,25 +18,29 @@ import android.util.Log;
 import android.view.OrientationEventListener;
 import android.view.WindowManager;
 
+import com.vuforia.CameraCalibration;
 import com.vuforia.CameraDevice;
 import com.vuforia.Device;
 import com.vuforia.INIT_ERRORCODE;
 import com.vuforia.INIT_FLAGS;
+import com.vuforia.Matrix44F;
+import com.vuforia.PIXEL_FORMAT;
 import com.vuforia.State;
+import com.vuforia.Tool;
 import com.vuforia.Vuforia;
 import com.vuforia.Vuforia.UpdateCallbackInterface;
 import com.vuforia.samples.VuforiaSamples.R;
 
 
 public class SampleApplicationSession implements UpdateCallbackInterface
-{
+{private Matrix44F mProjectionMatrix;
     
     private static final String LOGTAG = "SampleAppSession";
     
     // Reference to the current activity
     private Activity mActivity;
     private SampleApplicationControl mSessionControl;
-    
+    public static String LICENSE_KEY="Afquz7z/////AAABmQjj7uoXQE0As2rnX75fVzRnQSbl0tFymLFN4EsM876WxS3NqowoXSf4CetwsZLf1zL6aYVC4he0qlmOOJgATOCedcsgLE7Hr+3yQigH3ZLRipAZIw2ycfNK6LuRYxAMd4OCBxGO2/V2IChtlwD9c3rHTXaZwjLtXq4OwBdB2W6xygdKr7/PvG5FkOovBPxQZSKi6D+ZvU1cFDn7Z+OYfnfWsImG9Ua4H5vThgAvasWW5Ifoc01DuL9xZflQjNb6uiB9ZGcx5JO8aALzcKMGtxiQ5XBECyN/1SQpJGiN6CAuCIuzDhoFbBM21m10nkCBJENgBST/sCdHRS8M4pxOCj7vLhmIWGdY51P7NAdf2iVY";
     // Flags
     private boolean mStarted = false;
     private boolean mCameraRunning = false;
@@ -65,8 +69,20 @@ public class SampleApplicationSession implements UpdateCallbackInterface
     {
         mSessionControl = sessionControl;
     }
-    
-    
+    // Method for setting / updating the projection matrix for AR content
+    // rendering
+    public void setProjectionMatrix()
+    {
+        CameraCalibration camCal = CameraDevice.getInstance()
+                .getCameraCalibration();
+        mProjectionMatrix = Tool.getProjectionGL(camCal, 10.0f, 5000.0f);
+    }
+
+    // Gets the projection matrix to be used for rendering
+    public Matrix44F getProjectionMatrix()
+    {
+        return mProjectionMatrix;
+    }
     // Initializes Vuforia and sets up preferences.
     public void initAR(Activity activity, int screenOrientation)
     {
@@ -207,7 +223,9 @@ public class SampleApplicationSession implements UpdateCallbackInterface
                     logMessage);
             Log.e(LOGTAG, logMessage);
         }
+        Vuforia.setFrameFormat(PIXEL_FORMAT.RGB565, true);
 
+        setProjectionMatrix();
         if (vuforiaException != null)
         {
             // Send Vuforia Exception to the application and call initDone
@@ -274,7 +292,7 @@ public class SampleApplicationSession implements UpdateCallbackInterface
     
 
     // Resumes Vuforia, restarts the trackers and the camera
-    private void resumeAR()
+    public void resumeAR()
     {
         SampleApplicationException vuforiaException = null;
 
@@ -372,7 +390,7 @@ public class SampleApplicationSession implements UpdateCallbackInterface
             // Prevent the onDestroy() method to overlap with initialization:
             synchronized (mLifecycleLock)
             {
-                Vuforia.setInitParameters(mActivity, mVuforiaFlags, "AaDq6vD/////AAAAmVfLYP84IEoHlPRNqlSWIWBUPYC7a4+wibeI3zchdOnzgRVgUeY/jKjNQH4kEn1Z/vyN+iqmmmk/5JxeBoRDE2zenvn4FxilFxTuBCRjgozRwnDyTeU8mkB6QV34VDxtEKZENgf0Eur7ZEytY/ShgF/pBoZNCitm6sCnlSLb9Gm+E6mKo9AYy4UlcmqIEYIBYEdDvOpRSWyNdd+NLiznlplHyqcVOYWKaXVJsz/x2QzvWpWBZizjQc+YBhxuiaSKW6RemiRvZ/M5YxStUOB8OFEoAVY/We73m7yIgjYkNflPfi9RVBxypB0DKtHNmNF7jcR579XFsw9BnaxMOvexp/tYL+zDDrUyNTfgkapsJWNL");
+                Vuforia.setInitParameters(mActivity, mVuforiaFlags, LICENSE_KEY);
                 
                 do
                 {
